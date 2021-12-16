@@ -8,7 +8,7 @@ defmodule MapSets do
   koan "I do not allow duplication" do
     new_set = MapSet.new([1, 1, 2, 3, 3, 3])
 
-    assert MapSet.size(new_set) == ___
+    assert MapSet.size(new_set) == 3
   end
 
   def sorted?(set) do
@@ -19,18 +19,18 @@ defmodule MapSets do
 
   koan "You cannot depend on my order" do
     new_set = MapSet.new(1..33)
-    assert sorted?(new_set) == ___
+    assert sorted?(new_set) == false
 
     # Note: The number "33" is actually special here. Erlang uses a different
     # implementation for maps after 32 elements which does not maintain order.
     # http://stackoverflow.com/a/40408469
 
     # What do you think this answer to this assertion is?
-    assert sorted?(@set) == ___
+    assert sorted?(@set) == true
   end
 
   koan "Does this value exist in the map set?" do
-    assert MapSet.member?(@set, 3) == ___
+    assert MapSet.member?(@set, 3) == true
   end
 
   koan "I am merely another collection, but you can perform some operations on me" do
